@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-
+import Spinner from '../../../components/Spinner';
 import CartTable from './CartTable';
 
 function CheckoutFlow({
@@ -12,6 +12,13 @@ function CheckoutFlow({
     return (
       <div className="checkout-flow empty">
         <p>Your Cart is Empty</p>
+      </div>
+    );
+  }
+  if (items[0] === 'initial') {
+    return (
+      <div className="checkout-flow empty">
+        <Spinner />
       </div>
     );
   }

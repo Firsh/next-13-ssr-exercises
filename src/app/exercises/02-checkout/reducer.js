@@ -1,7 +1,7 @@
 import { produce } from 'immer';
 
 function reducer(state, action) {
-  return produce(state, (draftState) => {
+  const produced = produce(state, (draftState) => {
     switch (action.type) {
       case 'add-item': {
         const itemIndex = state.findIndex(
@@ -28,8 +28,17 @@ function reducer(state, action) {
         draftState.splice(itemIndex, 1);
         return;
       }
+
+      case 'replace-cart': {
+        //draftState.splice(0, draftState.length, ...action.storedCart);
+        return action.storedCart;
+      }
+
     }
   });
+  window.localStorage.setItem('cart', JSON.stringify(produced));
+  console.log({ produced });
+  return produced;
 }
 
 export default reducer;

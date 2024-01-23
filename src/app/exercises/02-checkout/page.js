@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-
 import DATA from './data';
 import reducer from './reducer';
 import StoreItem from './StoreItem';
@@ -10,9 +9,19 @@ import './styles.css';
 function CheckoutExercise() {
   const [items, dispatch] = React.useReducer(
     reducer,
-    []
+    ['initial']
   );
-
+  React.useEffect(() => {
+    const storedCart = localStorage.getItem('cart');
+    console.log({ storedCart });
+    if (storedCart) {
+      console.log("restoring cart from LS")
+      dispatch({ type: "replace-cart", storedCart: JSON.parse(storedCart) });
+    } else {
+      console.log("initializing cart, no LS")
+      dispatch({ type: "replace-cart", storedCart: [] });
+    }
+  }, []);
   return (
     <>
       <h1>Neighborhood Shop</h1>
