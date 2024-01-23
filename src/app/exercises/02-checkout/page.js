@@ -9,7 +9,7 @@ import './styles.css';
 function CheckoutExercise() {
   const [items, dispatch] = React.useReducer(
     reducer,
-    ['initial']
+    null
   );
   React.useEffect(() => {
     const storedCart = localStorage.getItem('cart');
@@ -22,6 +22,13 @@ function CheckoutExercise() {
       dispatch({ type: "replace-cart", storedCart: [] });
     }
   }, []);
+
+  React.useEffect(() => {
+    if (items !== null) {
+      window.localStorage.setItem('cart', JSON.stringify(items));
+    }
+  }, [items]);
+
   return (
     <>
       <h1>Neighborhood Shop</h1>

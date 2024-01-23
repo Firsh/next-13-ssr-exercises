@@ -8,6 +8,13 @@ function CheckoutFlow({
   taxRate,
   handleDeleteItem,
 }) {
+  if (items === null) {
+    return (
+      <div className="checkout-flow empty">
+        <Spinner />
+      </div>
+    );
+  }
   if (items.length === 0) {
     return (
       <div className="checkout-flow empty">
@@ -15,13 +22,7 @@ function CheckoutFlow({
       </div>
     );
   }
-  if (items[0] === 'initial') {
-    return (
-      <div className="checkout-flow empty">
-        <Spinner />
-      </div>
-    );
-  }
+
 
   const priceFormatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
