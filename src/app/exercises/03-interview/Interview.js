@@ -9,7 +9,7 @@ function Interview() {
         alt="AI-generated oil painting of Pikachu"
       />
 
-      <h1>A Fireside Chat with Gwen Altaria</h1>
+      <h1>A Fireside Chat with the Fox</h1>
 
       <p>
         <strong>Interviewer:</strong> It's a pleasure to
