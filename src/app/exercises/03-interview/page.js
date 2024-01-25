@@ -14,10 +14,11 @@ function InterviewExercise() {
       <Interview />
       <aside>
         <img
-          src="/gwen-artist.png"
-          alt="Portrait of the artist"
+          /*src="/gwen-artist.png"*/
+          src="/SdH3vOe.jpg"
+          alt="Portrait of the fox"
         />
-        <h2>About the Artist</h2>
+        <h2>About the Fox</h2>
         <p>
           Gwen Altaria is a contemporary artist known for
           her unique blend of traditional oil painting
